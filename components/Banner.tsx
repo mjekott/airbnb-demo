@@ -17,7 +17,7 @@ export default function Banner() {
         </p>
         <button
           className="my-3 rounded-full bg-white px-10  py-4 font-bold text-purple-500
-        shadow-md outline-none transition duration-150 ease-in-out hover:shadow-xl active:scale-90 lg:my-9"
+        shadow-md outline-none transition duration-150 ease-out hover:shadow-xl active:scale-75 lg:my-9"
         >
           I'm flexible
         </button>

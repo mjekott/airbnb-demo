@@ -4,12 +4,16 @@ import Image from 'next/image'
 import Banner from '../components/Banner'
 import Header from '../components/Header'
 import { InferGetStaticPropsType } from 'next'
-import { IExploreData } from '../types'
+import { ICardData, IExploreData } from '../types'
 import SmallCard from '../components/SmallCard'
 import { v4 as uuid } from 'uuid'
+import MediumCard from '../components/MediumCard'
+import LargeCard from '../components/LargeCard'
+import Footer from '../components/Footer'
 
 export default function Home({
   exploreData,
+  cardData,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div className="flex min-h-screen w-full flex-col overflow-hidden">
@@ -17,10 +21,10 @@ export default function Home({
         <title>House Hunt</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      {/* header */}
       <Header />
+      {/* banner */}
       <Banner />
-
       <main className="mx-auto w-full max-w-7xl px-8 sm:px-16">
         {/* Explore section */}
         <section className="pt-6">
@@ -40,9 +44,21 @@ export default function Home({
         {/* Live Anywhere */}
         <section className="pt-6">
           <h2 className="pb-5 text-4xl font-bold">Live Anywhere</h2>
-          <div className="flex flex-nowrap overflow-x-scroll"></div>
+          <div className="-ml-3  flex space-x-4 overflow-x-scroll p-3 scrollbar-hide">
+            {cardData &&
+              cardData.map((item) => (
+                <MediumCard img={item.img} title={item.title} key={uuid()} />
+              ))}
+          </div>
         </section>
+        <LargeCard
+          img="https://links.papareact.com/4cj"
+          title="The Greatest Outdoors"
+          description="Wishlits curated ny Airbnb"
+          buttonText="Get Inspired"
+        />
       </main>
+      <Footer />
     </div>
   )
 }
@@ -51,11 +67,14 @@ export async function getStaticProps() {
   const exploreData: IExploreData[] = await fetch(
     'https://jsonkeeper.com/b/4G1G'
   ).then((res) => res.json())
-  console.log(exploreData)
+  const cardData: ICardData[] = await fetch(
+    'https://jsonkeeper.com/b/VHHT'
+  ).then((res) => res.json())
 
   return {
     props: {
       exploreData,
+      cardData,
     },
   }
 }

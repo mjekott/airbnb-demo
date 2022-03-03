@@ -25,7 +25,7 @@ export default function Home({
       <Header />
       {/* banner */}
       <Banner />
-      <main className="mx-auto w-full max-w-7xl px-8 sm:px-16">
+      <main className="custom-container">
         {/* Explore section */}
         <section className="pt-6">
           <h2 className="pb-5 text-4xl font-bold">Explore Nearby</h2>

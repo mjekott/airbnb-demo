@@ -8,6 +8,7 @@ export default function Banner() {
       <Image
         src={BannerSvg}
         layout="fill"
+        priority
         objectFit="cover"
         className="h-full w-full brightness-75"
       />

@@ -10,7 +10,7 @@ import {
 
 const Header = () => {
   return (
-    <header className="fixed top-0 z-50 grid w-full grid-cols-3 bg-white py-5 px-8 shadow-md md:px-5">
+    <header className="px- fixed top-0 z-50 grid w-full grid-cols-3 bg-white py-5 shadow-md md:px-5">
       {/* left */}
       <div className="relative mx-auto flex h-10 cursor-pointer items-center justify-center">
         <Image src={Logo} objectFit="contain" className="w-20" />

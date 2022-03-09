@@ -4,5 +4,10 @@
   .custom-container {
     @apply mx-auto w-full max-w-7xl px-8 py-14;
   }
+
+  .button {
+    @apply transform cursor-pointer rounded-full border
+             px-4 py-2 transition duration-200 ease-out active:scale-95 active:bg-gray-100;
+  }
 }
 @tailwind utilities;
